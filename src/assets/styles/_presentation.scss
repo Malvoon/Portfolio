@@ -1,0 +1,12 @@
+#presentation {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 100px;
+    img {
+        width: 400px;
+        height: 400px;
+        border-radius: 80%;
+        object-fit: cover;
+        object-position: 0 -40px;
+    }
+}
