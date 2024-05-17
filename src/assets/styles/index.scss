@@ -5,15 +5,15 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #1f1f1f;
+    background-color: #232323;
     //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/MSG.png");
     //background-repeat: no-repeat;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 20px;
 }
 
 header {
-    background: #434343;
+    background: #3d3d3d;
     text-align: center;
     padding: 15px;
 
@@ -60,4 +60,9 @@ footer {
     margin-top: 50px;
     padding: 10px;
     background: #434343;
+}
+
+.btn {
+    height:100px;
+    width: 100px;
 }
