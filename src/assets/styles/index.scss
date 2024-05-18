@@ -1,9 +1,10 @@
 @import '_normalizer.scss';
 @import '_project.scss';
 @import '_presentation.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto";
     line-height: 1.6;
     background-color: #000000;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/MSG.png");
@@ -11,17 +12,20 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     color: rgb(255, 255, 255);
-    padding: 20px;
 }
 
 header {
-    background: #3d3d3d;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    background-color: #ffffff1a;
+    backdrop-filter: blur(2px);
     text-align: center;
     padding: 15px;
 
     nav {
         display: flex;
-        justify-content: space-around; // justify-content: space-around;
+        justify-content: space-around;
 
         a {
             display: block;
@@ -38,7 +42,19 @@ header {
             }
 
         }
+
+        div:first-child {
+            font-size: 1.7rem;
+            width: 20%;
+        }
+
+        div:last-child {
+            display: flex;
+            width: 70%;
+            margin-left: 5rem;
+        }
     }
+
 }
 
 main {
