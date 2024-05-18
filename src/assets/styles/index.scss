@@ -1,10 +1,11 @@
 @import '_normalizer.scss';
-@import '_project.scss';
+@import '_realisations.scss';
 @import '_presentation.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '_contact.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-    font-family: "Roboto";
+    font-family: "Montserrat";
     line-height: 1.6;
     background-color: #000000;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/MSG.png");
@@ -21,12 +22,12 @@ header {
     background-color: #ffffff1a;
     backdrop-filter: blur(2px);
     text-align: center;
-    padding: 15px;
 
     nav {
         display: flex;
         justify-content: space-around;
-
+        margin-top: 10px;
+        margin-bottom: 10px;
         a {
             display: block;
             color: #ffffff;
@@ -34,7 +35,7 @@ header {
             text-decoration: none;
             margin: auto;
             transition: 0.2s;
-
+            font-size: larger;
             &:hover {
                 color: rgb(202, 202, 202);
                 transform: scale(1.05);
@@ -50,8 +51,8 @@ header {
 
         div:last-child {
             display: flex;
-            width: 70%;
-            margin-left: 5rem;
+            width: 50%;
+            margin-left: 20rem;
         }
     }
 
@@ -64,7 +65,7 @@ main {
 }
 
 section {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 h2,
@@ -74,10 +75,9 @@ h3 {
 }
 
 footer {
+    margin-top: 40px;
     text-align: center;
-    margin-top: 50px;
-    padding: 10px;
-    background: #434343;
+    background-color: #ffffff18;
 }
 
 .to_top {

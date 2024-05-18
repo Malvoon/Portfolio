@@ -1,11 +1,10 @@
 #realisations {
     .projectCard {
+        height: 400px;
+        width: 400px;
         background: #212121;
         border: 1px solid #ffffff;
-        padding: 20px;
-        margin-top: 30px;
-        margin-bottom: 20px;
-        text-align: center;
+        margin: auto;
         color: #ffffff;
 
         &.hidden {
@@ -18,11 +17,16 @@
             opacity: 1;
             transform: translateY(0);
             transition: opacity 0.5s ease, transform 0.5s ease;
+            margin-top: 20px;
         }
 
         img {
-            width: 200px;
-            height: 200px;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 
