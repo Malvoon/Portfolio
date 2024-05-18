@@ -65,7 +65,7 @@ main {
 }
 
 section {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 h2,
@@ -75,9 +75,11 @@ h3 {
 }
 
 footer {
-    margin-top: 40px;
     text-align: center;
     background-color: #ffffff18;
+    p {
+        margin: 0;
+    }
 }
 
 .to_top {
