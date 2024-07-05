@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 #presentation {
+    width: 100vw;
+    height: 100vh;
+
     color: #ffffff;
-    margin-top: 150px;
-    margin-bottom: 50px;
-    display: flex;
-    
+    //background-color: #ff000070;
+    text-align: center;
+
     img {
-        width: 350px;
-        height: 350px;
+        width: 400px;
+        height: 400px;
         border-radius: 80%;
         object-fit: cover;
         object-position: 0 -40px;
-        float: left;
+        margin-top: 20vh;
+
     }
 
     .description {
         font-family: "Hind Madurai";
-        margin-top: 10%;
-        margin-left: 50%;
-        font-size: 18px;
+        font-size: 1.5em;
     }
 }

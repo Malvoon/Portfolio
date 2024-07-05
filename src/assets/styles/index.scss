@@ -2,6 +2,7 @@
 @import '_realisations.scss';
 @import '_presentation.scss';
 @import '_contact.scss';
+@import '_parcours.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
@@ -13,6 +14,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     color: rgb(255, 255, 255);
+    overflow-x: hidden;
 }
 
 header {
@@ -28,6 +30,7 @@ header {
         justify-content: space-around;
         margin-top: 10px;
         margin-bottom: 10px;
+
         a {
             display: block;
             color: #ffffff;
@@ -36,6 +39,7 @@ header {
             margin: auto;
             transition: 0.2s;
             font-size: larger;
+
             &:hover {
                 color: rgb(202, 202, 202);
                 transform: scale(1.05);
@@ -60,23 +64,20 @@ header {
 
 main {
     max-width: 800px;
-    margin: auto;
-    padding: 20px;
 }
 
 section {
-    margin-bottom: 10px;
 }
 
-h2,
-h3 {
-    margin-bottom: 10px;
+h2 {
     text-align: center;
+    font-size: 2.5em;
 }
 
 footer {
     text-align: center;
     background-color: #ffffff1a;
+
     p {
         margin: 0;
     }
