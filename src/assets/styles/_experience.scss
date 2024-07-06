@@ -1,0 +1,33 @@
+#experience {
+    padding-top: 80px;
+    width: 100vw;
+    height: 80vh;
+
+    h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 2em;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5em;
+    }
+
+    .experience {
+        text-align: center;
+        padding: 20px;
+
+        ul {
+            list-style: none; // Supprime les puces par défaut
+
+            li {
+                margin: 0;
+                padding: 0;
+                font-size: 1.5em;
+            }
+        }
+
+    }
+}

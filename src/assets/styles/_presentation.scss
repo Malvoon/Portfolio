@@ -3,9 +3,7 @@
 #presentation {
     width: 100vw;
     height: 100vh;
-
     color: #ffffff;
-    //background-color: #ff000070;
     text-align: center;
 
     img {
@@ -15,11 +13,9 @@
         object-fit: cover;
         object-position: 0 -40px;
         margin-top: 20vh;
-
     }
 
     .description {
-        font-family: "Hind Madurai";
         font-size: 1.5em;
     }
 }

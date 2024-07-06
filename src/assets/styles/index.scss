@@ -3,11 +3,11 @@
 @import '_presentation.scss';
 @import '_contact.scss';
 @import '_parcours.scss';
+@import '_experience.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
     font-family: "Montserrat";
-    line-height: 1.6;
     background-color: #000000;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/MSG.png");
     background-attachment: fixed;
@@ -64,9 +64,6 @@ header {
 
 main {
     max-width: 800px;
-}
-
-section {
 }
 
 h2 {
