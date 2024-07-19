@@ -1,4 +1,5 @@
 @import '_normalizer.scss';
+@import '_competences.scss';
 @import '_realisations.scss';
 @import '_presentation.scss';
 @import '_contact.scss';
@@ -15,6 +16,9 @@ body {
     background-position: center;
     color: rgb(255, 255, 255);
     overflow-x: hidden;
+    scrollbar-width: thin; // "auto" or "thin"
+    scrollbar-color: #888 #f1f1f1; // thumb and track color
+
 }
 
 header {
@@ -77,6 +81,23 @@ footer {
 
     p {
         margin: 0;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+
+    &:hover {
+        background: #555;
     }
 }
 
