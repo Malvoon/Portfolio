@@ -231,8 +231,8 @@ export default function Portfolio() {
                                         key={item.id}
                                         onClick={() => scrollToSection(item.id)}
                                         className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeSection === item.id
-                                                ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/20'
-                                                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                            ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/20'
+                                            : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                             }`}
                                     >
                                         {item.label}
