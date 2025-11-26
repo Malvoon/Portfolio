@@ -52,14 +52,16 @@ const Card = ({ children, className = "" }) => (
 const SKILLS = {
     security: [
         "Blue Team", "Active Directory Hardening", "SOC & SIEM", "GPO",
-        "PingCastle", "BloodHound", "MISP", "Stormshield", "PfSense"
+        "PingCastle", "BloodHound", "MISP", "Stormshield", "PfSense", "Wireshark",
+        "Sysmon", "Suricata",
     ],
     dev: [
-        "Python", "Java", "React", "Bash / PowerShell", "Ansible", "Selenium", "C/C++"
+        "Python", "Java", "React", "Bash", "PowerShell", "Ansible", "Selenium", "C/C++",
+        "HTML/CSS", "JavaScript", "PostgreSQL", "Git", "YAML", "JSON",
     ],
     ops: [
-        "Linux (Debian/RHEL)", "Windows Server", "Proxmox", "VMware",
-        "ELK Stack", "Graylog", "Prometheus", "Grafana", "Docker"
+        "Windows", "Linux", "Windows Server", "Proxmox", "VMware", "VirtualBox",
+        "ELK Stack", "Graylog", "Prometheus", "Grafana", "Docker", "Kubernetes"
     ],
     creative: [
         "Unity", "Blender", "FL Studio", "Audacity", "Git/GitHub"
@@ -69,7 +71,7 @@ const SKILLS = {
 const EXPERIENCES = [
     {
         id: 1,
-        role: "Développeur Fullstack (Stage)",
+        role: "Stagiaire Développeur Fullstack",
         company: "Crédit Agricole CIB",
         location: "Guyancourt, France",
         period: "Sept. 2024 - Févr. 2025",
@@ -84,7 +86,7 @@ const EXPERIENCES = [
     },
     {
         id: 2,
-        role: "Agent de Production (Job Étudiant)",
+        role: "Agent de Production",
         company: "Blanchisserie Toulousaine de Santé",
         location: "Toulouse, France",
         period: "Juil. 2022 - Août 2022",
@@ -105,7 +107,7 @@ const PROJECTS = [
         type: "Cyber Offensive",
         period: "Févr. 2025 - Aujourd'hui",
         description: "Conception et déploiement d'un challenge technique multi-exercices pour experts (SCADA maritime, AIS, Forensic).",
-        tech: ["SCADA", "Reverse Engineering", "Linux", "Memory Forensics"],
+        tech: ["SCADA", "Reverse Engineering", "Linux", "Memory Forensics", ".Net", "C#", "AIS/AIVDM"],
         details: "Création d'un lab isolé et scénarisation d'attaques réalistes pour le Forum International de la Cybersécurité."
     },
     {
@@ -114,8 +116,8 @@ const PROJECTS = [
         type: "Audit & Hardening",
         period: "Mai 2025 - Juin 2025",
         description: "Audit technique et organisationnel d'un domaine AD : identification de vecteurs d'attaque et remédiation.",
-        tech: ["PingCastle", "BloodHound", "Mimikatz", "GPO", "RBAC"],
-        details: "Simulation de compromissions, durcissement (Tiering, MFA, désactivation SMBv1) et rédaction de plan de remédiation."
+        tech: ["Active Directory", "PingCastle", "BloodHound", "PurpleKnight", "GPO", "RBAC", "Audit", "Remédiation", "Windows Server"],
+        details: "Simulation de compromissions, durcissement (Tiering, désactivation SMBv1) et rédaction de plan de remédiation."
     },
     {
         id: 'adlin',
@@ -141,14 +143,14 @@ const PROJECTS = [
         type: "Consulting",
         period: "Févr. 2025 - Oct. 2025",
         description: "Simulation de consulting en transformation digitale pour la modernisation des hôpitaux (Région ARA).",
-        tech: ["ISO 27001", "Analyse de Risques", "Gestion de Projet"],
+        tech: ["ISO 27001", "Analyse de Risques", "Gestion de Projet", "Conduite du Changement", "Architecture Sécurisée"],
         details: "Analyse métier, définition d'architecture cible sécurisée et stratégie de conduite du changement."
     }
 ];
 
 // --- Application Principale ---
 
-export default function Portfolio() {
+export default function App() {
     const [activeSection, setActiveSection] = useState('home');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [typedText, setTypedText] = useState('');
@@ -198,8 +200,8 @@ export default function Portfolio() {
         { id: 'home', label: 'Accueil' },
         { id: 'about', label: 'À propos' },
         { id: 'skills', label: 'Compétences' },
-        { id: 'experience', label: 'Expérience' },
         { id: 'projects', label: 'Projets' },
+        { id: 'experience', label: 'Expérience' },
         { id: 'contact', label: 'Contact' },
     ];
 
