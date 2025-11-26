@@ -18,7 +18,9 @@ import {
     CheckCircle,
     Music,
     MonitorPlay,
-    Activity
+    Activity,
+    GraduationCap,
+    Youtube
 } from 'lucide-react';
 
 // --- Composants UI Reutilisables ---
@@ -74,6 +76,7 @@ const EXPERIENCES = [
         id: 1,
         role: "Stagiaire Développeur Fullstack",
         company: "Crédit Agricole CIB",
+        logo: "/logos/CACIB.png",
         location: "Guyancourt, France",
         period: "Sept. 2024 - Févr. 2025",
         description: "Participation au développement et à la maintenance d'une application web interne en environnement Agile.",
@@ -89,6 +92,7 @@ const EXPERIENCES = [
         id: 2,
         role: "Agent de Production",
         company: "Blanchisserie Toulousaine de Santé",
+        logo: "/logos/Blanchisserie.png",
         location: "Toulouse, France",
         period: "Juil. 2022 - Août 2022",
         description: "Immersion au cœur de la chaîne de traitement du linge industriel (Milieu Hospitalier).",
@@ -105,6 +109,7 @@ const PROJECTS = [
     {
         id: 'fic',
         title: "Challenge Maker - FIC",
+        logo: "/logos/SRS.png",
         type: "Cyber Offensive",
         period: "Févr. 2025 - Aujourd'hui",
         description: "Conception et déploiement d'un challenge technique multi-exercices pour experts (SCADA maritime, AIS, Forensic).",
@@ -113,7 +118,8 @@ const PROJECTS = [
     },
     {
         id: 'acda',
-        title: "Audit Sécurité Active Directory (ACDA)",
+        title: "Audit Sécurité Active Directory",
+        logo: "/logos/SRS.png",
         type: "Audit & Hardening",
         period: "Mai 2025 - Juin 2025",
         description: "Audit technique et organisationnel d'un domaine AD : identification de vecteurs d'attaque et remédiation.",
@@ -123,6 +129,7 @@ const PROJECTS = [
     {
         id: 'adlin',
         title: "Administration Linux (ADLIN)",
+        logo: "/logos/SRS.png",
         type: "Infra & Auto",
         period: "Avr. 2025 - Mai 2025",
         description: "Automatisation du déploiement de sites web avec résolution DNS centralisée et supervision complète.",
@@ -131,7 +138,8 @@ const PROJECTS = [
     },
     {
         id: 'ars',
-        title: "Architecture Réseaux & Systèmes (ARS)",
+        title: "Architecture Réseaux & Systèmes",
+        logo: "/logos/SRS.png",
         type: "Infrastructures",
         period: "Févr. 2025 - Aujourd'hui",
         description: "Conception, déploiement et durcissement d'infrastructures complètes (Labs isolés).",
@@ -141,11 +149,43 @@ const PROJECTS = [
     {
         id: 'pms',
         title: "Projet Mise en Situation (PMS)",
+        logo: "/logos/SRS.png",
         type: "Consulting",
         period: "Févr. 2025 - Oct. 2025",
         description: "Simulation de consulting en transformation digitale pour la modernisation des hôpitaux (Région ARA).",
         tech: ["ISO 27001", "Analyse de Risques", "Gestion de Projet", "Conduite du Changement", "Architecture Sécurisée"],
         details: "Analyse métier, définition d'architecture cible sécurisée et stratégie de conduite du changement."
+    }
+];
+
+const FORMATIONS = [
+    {
+        id: 1,
+        school: "EPITA",
+        logo: "/logos/EPITA.jpg",
+        degree: "Diplôme d'ingénieur en informatique",
+        specialization: "Majeure Systèmes, Réseaux et Sécurité (SRS)",
+        period: "Sept. 2021 - Juin 2026",
+        location: "Le Kremlin-Bicêtre, France"
+    },
+    {
+        id: 2,
+        school: "Chulalongkorn University",
+        logo: "/logos/Chulalongkorn.jpg",
+        degree: "Semestre d'échange international",
+        specialization: "Immersion culturelle & Boxe Thaïlandaise",
+        period: "Janv. 2023 - Juin 2023",
+        location: "Bangkok, Thaïlande"
+    },
+    {
+        id: 3,
+        school: "Lycée Saint-Louis Saint-Clément",
+        logo: "/logos/Lycee.png",
+        degree: "Baccalauréat Général",
+        specialization: "Spécialités Mathématiques & Physique-Chimie",
+        details: "Option Mathématiques Expertes, Mention Bien",
+        period: "2018 - 2021",
+        location: "France"
     }
 ];
 
@@ -158,17 +198,15 @@ export default function App() {
     const fullText = "Ingénieur Cybersécurité & Réseaux";
     const [showCopyNotification, setShowCopyNotification] = useState(false);
 
-    // Effet machine à écrire
     useEffect(() => {
         if (typedText.length < fullText.length) {
             const timeout = setTimeout(() => {
                 setTypedText(fullText.slice(0, typedText.length + 1));
-            }, 50); // Vitesse de frappe
+            }, 50);
             return () => clearTimeout(timeout);
         }
     }, [typedText]);
 
-    // Gestion du scroll
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
@@ -178,7 +216,6 @@ export default function App() {
         }
     };
 
-    // Copie de l'email
     const copyToClipboard = () => {
         const email = "smelvoon@gmail.com";
         const textArea = document.createElement("textarea");
@@ -209,7 +246,6 @@ export default function App() {
     return (
         <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
 
-            {/* Background Grid Effect */}
             <div className="fixed inset-0 z-0 pointer-events-none"
                 style={{
                     backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(16, 185, 129, 0.05) 1px, transparent 0)',
@@ -217,7 +253,6 @@ export default function App() {
                 }}>
             </div>
 
-            {/* Navbar */}
             <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
@@ -225,8 +260,6 @@ export default function App() {
                             <Terminal size={20} />
                             <span>MELVIN_SHG</span>
                         </div>
-
-                        {/* Desktop Nav */}
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
                                 {navItems.map((item) => (
@@ -243,8 +276,6 @@ export default function App() {
                                 ))}
                             </div>
                         </div>
-
-                        {/* Mobile menu button */}
                         <div className="md:hidden">
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -255,8 +286,6 @@ export default function App() {
                         </div>
                     </div>
                 </div>
-
-                {/* Mobile Nav */}
                 {mobileMenuOpen && (
                     <div className="md:hidden bg-slate-900 border-b border-slate-800">
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -276,7 +305,6 @@ export default function App() {
 
             <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
 
-                {/* HERO SECTION */}
                 <section id="home" className="min-h-[85vh] flex flex-col justify-center py-20">
                     <div className="space-y-4 max-w-3xl">
                         <p className="text-emerald-500 font-mono text-sm sm:text-base mb-2">
@@ -292,7 +320,6 @@ export default function App() {
                             Étudiant en 5e année à l'<strong>EPITA</strong>, spécialisé en Systèmes, Réseaux et Sécurité (SRS).
                             Orienté <strong>Blue Team</strong>, je me passionne pour la détection, la réponse aux incidents et le durcissement d'infrastructures critiques.
                         </p>
-
                         <div className="flex flex-wrap gap-4 pt-8">
                             <button
                                 onClick={() => scrollToSection('contact')}
@@ -308,13 +335,11 @@ export default function App() {
                             </button>
                         </div>
                     </div>
-
                     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-slate-600">
                         <ChevronDown size={32} />
                     </div>
                 </section>
 
-                {/* ABOUT SECTION */}
                 <section id="about" className="py-20">
                     <SectionTitle title="À propos" icon={Shield} />
                     <div className="grid md:grid-cols-3 gap-10">
@@ -328,7 +353,6 @@ export default function App() {
                             <p>
                                 Côté infrastructure, je conçois et opère mes propres laboratoires virtualisés sur <strong className="text-slate-200">Proxmox et VMware</strong> pour simuler des topologies complexes et valider des configurations de sécurité avant déploiement.
                             </p>
-
                             <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-slate-800">
                                 <div className="flex items-center gap-2 text-sm text-slate-500">
                                     <MapPin size={16} /> Grigny / Paris
@@ -341,7 +365,6 @@ export default function App() {
                                 </div>
                             </div>
                         </div>
-
                         <div className="bg-slate-900 border border-slate-800 p-6 rounded-lg relative overflow-hidden group">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                 <Lock size={100} />
@@ -374,11 +397,9 @@ export default function App() {
                     </div>
                 </section>
 
-                {/* SKILLS SECTION */}
                 <section id="skills" className="py-20 bg-slate-900/20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-6xl mx-auto">
                         <SectionTitle title="Compétences" icon={Cpu} />
-
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <Card>
                                 <div className="flex items-center gap-3 mb-4">
@@ -389,7 +410,6 @@ export default function App() {
                                     {SKILLS.security.map(skill => <SkillBadge key={skill} skill={skill} />)}
                                 </div>
                             </Card>
-
                             <Card>
                                 <div className="flex items-center gap-3 mb-4">
                                     <Server className="text-blue-500" />
@@ -399,7 +419,6 @@ export default function App() {
                                     {SKILLS.ops.map(skill => <SkillBadge key={skill} skill={skill} />)}
                                 </div>
                             </Card>
-
                             <Card>
                                 <div className="flex items-center gap-3 mb-4">
                                     <Code className="text-purple-500" />
@@ -409,7 +428,6 @@ export default function App() {
                                     {SKILLS.dev.map(skill => <SkillBadge key={skill} skill={skill} />)}
                                 </div>
                             </Card>
-
                             <Card>
                                 <div className="flex items-center gap-3 mb-4">
                                     <MonitorPlay className="text-pink-500" />
@@ -423,32 +441,29 @@ export default function App() {
                     </div>
                 </section>
 
-                {/* PROJECTS SECTION */}
                 <section id="projects" className="py-20">
                     <SectionTitle title="Projets Techniques" icon={Database} />
-
                     <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
                         {PROJECTS.map((project) => (
                             <div key={project.id} className="group relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-                                {/* Top Bar Decoration */}
                                 <div className={`h-1 w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r ${project.type === 'Cyber Offensive' ? 'from-amber-500 to-red-500' : 'from-emerald-500 to-blue-500'}`}></div>
-
                                 <div className="p-6 flex-grow flex flex-col">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <span className={`text-xs font-mono uppercase tracking-wider ${project.type === 'Cyber Offensive' ? 'text-amber-500' : 'text-emerald-500'}`}>{project.type}</span>
-                                        <span className="text-xs text-slate-500 font-mono">{project.period}</span>
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div>
+                                            <span className={`text-xs font-mono uppercase tracking-wider ${project.type === 'Cyber Offensive' ? 'text-amber-500' : 'text-emerald-500'}`}>{project.type}</span>
+                                            <span className="text-xs text-slate-500 font-mono block mt-1">{project.period}</span>
+                                        </div>
+                                        {project.logo && (
+                                            <img src={project.logo} alt="Logo" className="w-10 h-10 object-contain rounded bg-white/5 p-1 border border-slate-700/50" />
+                                        )}
                                     </div>
-
                                     <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">{project.title}</h3>
-
                                     <p className="text-slate-400 mb-4 text-sm leading-relaxed">
                                         {project.description}
                                     </p>
-
                                     <div className="mb-4 text-sm text-slate-500 border-l-2 border-slate-800 pl-3 italic">
                                         {project.details}
                                     </div>
-
                                     <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-800/50">
                                         {project.tech.map(t => (
                                             <span key={t} className="text-xs px-2 py-1 bg-slate-950 text-slate-400 rounded border border-slate-800">
@@ -462,33 +477,34 @@ export default function App() {
                     </div>
                 </section>
 
-                {/* EXPERIENCE SECTION */}
                 <section id="experience" className="py-20">
                     <SectionTitle title="Expériences" icon={BriefcaseIcon} />
-
                     <div className="relative border-l border-slate-800 ml-3 md:ml-6 space-y-12">
                         {EXPERIENCES.map((exp) => (
                             <div key={exp.id} className="relative pl-8 md:pl-12 group">
-                                {/* Timeline Dot */}
                                 <div className="absolute -left-[5px] top-2 w-3 h-3 bg-slate-600 rounded-full border-2 border-slate-950 group-hover:bg-emerald-500 transition-colors"></div>
-
-                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                                    <h3 className="text-xl font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">
-                                        {exp.role}
-                                    </h3>
-                                    <span className="text-sm font-mono text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-800">
-                                        {exp.period}
-                                    </span>
+                                <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-2">
+                                    <div className="flex-1">
+                                        <h3 className="text-xl font-bold text-slate-200 group-hover:text-emerald-400 transition-colors flex items-center gap-3">
+                                            {exp.role}
+                                        </h3>
+                                        <div className="text-lg text-emerald-500/80 mb-1 font-medium flex items-center gap-2">
+                                            @ {exp.company}
+                                            <span className="text-slate-600 text-sm font-normal">| {exp.location}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-end gap-2 mt-2 sm:mt-0">
+                                        <span className="text-sm font-mono text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-800 whitespace-nowrap">
+                                            {exp.period}
+                                        </span>
+                                        {exp.logo && (
+                                            <img src={exp.logo} alt={`Logo ${exp.company}`} className="w-12 h-12 object-contain rounded bg-white p-1 border border-slate-700 hidden sm:block" />
+                                        )}
+                                    </div>
                                 </div>
-
-                                <div className="text-lg text-emerald-500/80 mb-2 font-medium">
-                                    @ {exp.company} <span className="text-slate-600 text-sm font-normal">| {exp.location}</span>
-                                </div>
-
                                 <p className="text-slate-400 mb-4 max-w-2xl">
                                     {exp.description}
                                 </p>
-
                                 <ul className="mb-4 space-y-2">
                                     {exp.details.map((detail, idx) => (
                                         <li key={idx} className="flex items-start gap-2 text-slate-400 text-sm">
@@ -497,7 +513,6 @@ export default function App() {
                                         </li>
                                     ))}
                                 </ul>
-
                                 <div className="flex flex-wrap gap-2">
                                     {exp.tags.map(tag => (
                                         <span key={tag} className="text-xs text-slate-500 font-mono bg-slate-900/50 px-2 py-1 rounded">#{tag}</span>
@@ -507,41 +522,46 @@ export default function App() {
                         ))}
                     </div>
 
-                    {/* Education Mini Section */}
-                    <div className="mt-16 pt-8 border-t border-slate-800">
-                        <h3 className="text-xl font-bold text-slate-200 mb-6 flex items-center gap-2">
+                    <div className="mt-20 pt-10 border-t border-slate-800">
+                        <h3 className="text-2xl font-bold text-slate-200 mb-8 flex items-center gap-2">
                             <span className="text-emerald-500">./</span> Formation
                         </h3>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-slate-900 p-5 rounded border border-slate-800">
-                                <div className="flex justify-between items-start mb-2">
-                                    <h4 className="font-bold text-white">EPITA</h4>
-                                    <span className="text-xs text-slate-500">Sept. 2021 - Juin 2026</span>
+                        <div className="grid md:grid-cols-1 gap-6">
+                            {FORMATIONS.map((formation) => (
+                                <div key={formation.id} className="bg-slate-900/50 p-6 rounded border border-slate-800 hover:border-emerald-500/30 transition-colors flex flex-col md:flex-row gap-6 items-start">
+                                    <div className="w-16 h-16 shrink-0 bg-white p-1 rounded border border-slate-700 overflow-hidden flex items-center justify-center">
+                                        <img src={formation.logo} alt={formation.school} className="w-full h-full object-contain" />
+                                    </div>
+                                    <div className="flex-grow w-full">
+                                        <div className="flex flex-col md:flex-row justify-between items-start mb-2">
+                                            <div>
+                                                <h4 className="text-lg font-bold text-white">{formation.school}</h4>
+                                                <p className="text-emerald-400 text-sm">{formation.degree}</p>
+                                            </div>
+                                            <span className="text-xs font-mono text-slate-500 bg-slate-950 px-2 py-1 rounded border border-slate-800 mt-2 md:mt-0">
+                                                {formation.period}
+                                            </span>
+                                        </div>
+                                        {formation.specialization && (
+                                            <p className="text-slate-400 text-sm mb-1">{formation.specialization}</p>
+                                        )}
+                                        {formation.details && (
+                                            <p className="text-slate-500 text-sm italic border-l-2 border-slate-800 pl-3 mt-2">{formation.details}</p>
+                                        )}
+                                    </div>
                                 </div>
-                                <p className="text-emerald-400 text-sm mb-2">Diplôme d'ingénieur en informatique</p>
-                                <p className="text-slate-400 text-sm">Majeure Systèmes, Réseaux et Sécurité (SRS)</p>
-                            </div>
-                            <div className="bg-slate-900 p-5 rounded border border-slate-800">
-                                <div className="flex justify-between items-start mb-2">
-                                    <h4 className="font-bold text-white">Chulalongkorn University</h4>
-                                    <span className="text-xs text-slate-500">Janv. 2023 - Juin 2023</span>
-                                </div>
-                                <p className="text-emerald-400 text-sm mb-2">Bangkok, Thaïlande</p>
-                                <p className="text-slate-400 text-sm">Immersion culturelle & Boxe Thaïlandaise (Muay Thai)</p>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </section>
 
-                {/* CONTACT SECTION */}
                 <section id="contact" className="py-20 mb-20 text-center max-w-2xl mx-auto">
                     <p className="text-emerald-500 font-mono mb-4">./Contact</p>
                     <h2 className="text-4xl font-bold text-slate-100 mb-6">Faisons connaissance</h2>
                     <p className="text-slate-400 text-lg mb-8">
                         Mon profil vous intéresse ou vous souhaitez échanger sur des problématiques de sécurité défensive ? Ma boîte de réception est toujours ouverte.
                     </p>
-
-                    <div className="flex justify-center gap-6">
+                    <div className="flex flex-wrap justify-center gap-6">
                         <button
                             onClick={copyToClipboard}
                             className="group relative px-6 py-3 border border-emerald-500 text-emerald-500 rounded hover:bg-emerald-500/10 transition-colors flex items-center gap-2"
@@ -554,7 +574,6 @@ export default function App() {
                                 </span>
                             )}
                         </button>
-
                         <a
                             href="https://www.linkedin.com/in/melvin-shg/"
                             target="_blank"
@@ -564,12 +583,20 @@ export default function App() {
                             <Linkedin size={20} />
                             <span>LinkedIn</span>
                         </a>
+                        <a
+                            href="https://www.youtube.com/@msg4120"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="px-6 py-3 border border-slate-700 text-slate-300 rounded hover:border-red-500 hover:text-red-400 transition-colors flex items-center gap-2"
+                        >
+                            <Youtube size={20} />
+                            <span>YouTube</span>
+                        </a>
                     </div>
                 </section>
 
             </main>
 
-            {/* Footer */}
             <footer className="bg-slate-950 py-8 border-t border-slate-900 text-center text-slate-600 text-sm font-mono">
                 <p>Design & Développement par Melvin Shong Geu</p>
                 <p className="mt-2 text-xs opacity-50">Built with React & Tailwind CSS</p>
