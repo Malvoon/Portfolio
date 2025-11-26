@@ -20,7 +20,8 @@ import {
     MonitorPlay,
     Activity,
     GraduationCap,
-    Youtube
+    Youtube,
+    Languages
 } from 'lucide-react';
 
 // --- Composants UI Reutilisables ---
@@ -59,7 +60,7 @@ const SKILLS = {
         "ISO 27001", "Analyses de Risques"
     ],
     dev: [
-        "Python", "Java", "Bash", "PowerShell", "Ansible", "Selenium", "C/C++",
+        "Python", "Java", "Bash", "PowerShell", "Ansible", "Selenium", "C/C++", "C#",
         "HTML/CSS", "JavaScript", "React", "PostgreSQL", "Git", "YAML", "JSON",
     ],
     ops: [
@@ -155,6 +156,26 @@ const PROJECTS = [
         description: "Simulation de consulting en transformation digitale pour la modernisation des hôpitaux (Région ARA).",
         tech: ["ISO 27001", "Analyse de Risques", "Gestion de Projet", "Conduite du Changement", "Architecture Sécurisée"],
         details: "Analyse métier, définition d'architecture cible sécurisée et stratégie de conduite du changement."
+    },
+    {
+        id: 'ocr',
+        title: "OCR Sudoku Solver",
+        logo: "/logos/EPITA.png",
+        type: "IA & Computer Vision",
+        period: "Sept. 2022 - Déc. 2022",
+        description: "Création d'un algorithme de reconnaissance optique de caractères (OCR) capable de résoudre une grille de Sudoku à partir d'une image.",
+        tech: ["C", "Neural Networks", "GTK", "SDL", "Image Processing"],
+        details: "Réseau de neurones 'from scratch', traitement d'image (niveaux de gris) et interface utilisateur."
+    },
+    {
+        id: 'tesoros',
+        title: "Tesoros Enterrados",
+        logo: "/logos/EPITA.png",
+        type: "Développement de Jeu",
+        period: "Janv. 2021 - Janv. 2022",
+        description: "Jeu vidéo d'aventure et de résolution d'énigmes en coopération sur le moteur Unity.",
+        tech: ["Unity", "C#", "Photon Engine", "Blender", "AI"],
+        details: "Responsable graphisme et modélisation 3D, mise en place serveur multijoueur (Photon) et création d'une IA."
     }
 ];
 
@@ -305,8 +326,8 @@ export default function App() {
 
             <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
 
-                <section id="home" className="min-h-[85vh] flex flex-col justify-center py-20">
-                    <div className="space-y-4 max-w-3xl">
+                <section id="home" className="min-h-[85vh] flex flex-col-reverse md:flex-row items-center justify-center py-20 gap-10 md:gap-16">
+                    <div className="space-y-4 max-w-2xl flex-1">
                         <p className="text-emerald-500 font-mono text-sm sm:text-base mb-2">
                             👋 Bonjour, je suis
                         </p>
@@ -335,15 +356,29 @@ export default function App() {
                             </button>
                         </div>
                     </div>
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-slate-600">
-                        <ChevronDown size={32} />
+
+                    <div className="relative group shrink-0">
+                        {/* Decorative background blur */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        {/* Image container */}
+                        <div className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full p-1 bg-slate-900 border border-slate-800 overflow-hidden">
+                            <img
+                                src="/logos/profile.jpg"
+                                alt="Melvin Shong Geu"
+                                className="w-full h-full object-cover rounded-full"
+                            />
+                        </div>
                     </div>
                 </section>
+
+                <div className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-600">
+                    <ChevronDown size={32} />
+                </div>
 
                 <section id="about" className="py-20">
                     <SectionTitle title="À propos" icon={Shield} />
                     <div className="grid md:grid-cols-3 gap-10">
-                        <div className="md:col-span-2 space-y-4 text-slate-400 text-lg">
+                        <div className="md:col-span-2 space-y-4 text-slate-400 text-lg flex flex-col">
                             <p>
                                 Je suis spécialisé en <strong className="text-emerald-400">cybersécurité défensive</strong> et sécurité opérationnelle.
                             </p>
@@ -353,19 +388,32 @@ export default function App() {
                             <p>
                                 Côté infrastructure, je conçois et opère mes propres laboratoires virtualisés sur <strong className="text-slate-200">Proxmox et VMware</strong> pour simuler des topologies complexes et valider des configurations de sécurité avant déploiement.
                             </p>
-                            <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-slate-800">
-                                <div className="flex items-center gap-2 text-sm text-slate-500">
-                                    <MapPin size={16} /> Grigny / Paris
+
+                            <div className="mt-auto pt-6 border-t border-slate-800">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                    <div className="flex items-center gap-2 text-sm text-slate-500">
+                                        <MapPin size={16} className="text-emerald-500" /> Grigny / Paris
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm text-slate-500">
+                                        <Music size={16} className="text-emerald-500" /> Musicien & Créatif
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-sm text-slate-500">
-                                    <Globe size={16} /> FR / EN (B2) / ES (A2)
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-slate-500">
-                                    <Music size={16} /> Musicien & Créatif
+
+                                <div className="flex flex-col gap-2">
+                                    <h4 className="text-sm font-bold text-slate-300 flex items-center gap-2">
+                                        <Languages size={16} className="text-emerald-500" /> Langues
+                                    </h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        <span className="px-2 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded text-xs text-emerald-400">Français (Natif)</span>
+                                        <span className="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs text-slate-300">Anglais (Pro)</span>
+                                        <span className="px-2 py-1 bg-slate-800/50 border border-slate-700/50 rounded text-xs text-slate-400">Espagnol (Notions)</span>
+                                        <span className="px-2 py-1 bg-slate-800/50 border border-slate-700/50 rounded text-xs text-slate-400">Hmong (Notions)</span>
+                                        <span className="px-2 py-1 bg-slate-800/50 border border-slate-700/50 rounded text-xs text-slate-400">Thaïlandais (Notions)</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-slate-900 border border-slate-800 p-6 rounded-lg relative overflow-hidden group">
+                        <div className="bg-slate-900 border border-slate-800 p-6 rounded-lg relative overflow-hidden group h-fit">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                 <Lock size={100} />
                             </div>
@@ -442,7 +490,7 @@ export default function App() {
                 </section>
 
                 <section id="projects" className="py-20">
-                    <SectionTitle title="Projets Techniques" icon={Database} />
+                    <SectionTitle title="Projets" icon={Database} />
                     <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
                         {PROJECTS.map((project) => (
                             <div key={project.id} className="group relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col">
@@ -454,7 +502,7 @@ export default function App() {
                                             <span className="text-xs text-slate-500 font-mono block mt-1">{project.period}</span>
                                         </div>
                                         {project.logo && (
-                                            <img src={project.logo} alt="Logo" className="w-10 h-10 object-contain rounded bg-white/5 p-1 border border-slate-700/50" />
+                                            <img src={project.logo} alt="Logo" className="w-16 h-16 object-contain" />
                                         )}
                                     </div>
                                     <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">{project.title}</h3>
@@ -498,7 +546,7 @@ export default function App() {
                                             {exp.period}
                                         </span>
                                         {exp.logo && (
-                                            <img src={exp.logo} alt={`Logo ${exp.company}`} className="w-12 h-12 object-contain rounded bg-white p-1 border border-slate-700 hidden sm:block" />
+                                            <img src={exp.logo} alt={`Logo ${exp.company}`} className="w-20 h-20 object-contain hidden sm:block" />
                                         )}
                                     </div>
                                 </div>
@@ -529,7 +577,7 @@ export default function App() {
                         <div className="grid md:grid-cols-1 gap-6">
                             {FORMATIONS.map((formation) => (
                                 <div key={formation.id} className="bg-slate-900/50 p-6 rounded border border-slate-800 hover:border-emerald-500/30 transition-colors flex flex-col md:flex-row gap-6 items-start">
-                                    <div className="w-16 h-16 shrink-0 bg-white p-1 rounded border border-slate-700 overflow-hidden flex items-center justify-center">
+                                    <div className="w-24 h-24 shrink-0 flex items-center justify-center">
                                         <img src={formation.logo} alt={formation.school} className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex-grow w-full">
