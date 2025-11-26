@@ -52,19 +52,20 @@ const Card = ({ children, className = "" }) => (
 const SKILLS = {
     security: [
         "Blue Team", "Active Directory Hardening", "SOC & SIEM", "GPO",
-        "PingCastle", "BloodHound", "MISP", "Stormshield", "PfSense", "Wireshark",
-        "Sysmon", "Suricata",
+        "PingCastle", "PurpleKnight", "BloodHound", "MISP", "Stormshield", "PfSense", "Wireshark",
+        "Sysmon", "Snort", "Suricata", "IAM", "NMAP", "OSINT", "Forensic", "Incident Response",
+        "ISO 27001", "Analyses de Risques"
     ],
     dev: [
-        "Python", "Java", "React", "Bash", "PowerShell", "Ansible", "Selenium", "C/C++",
-        "HTML/CSS", "JavaScript", "PostgreSQL", "Git", "YAML", "JSON",
+        "Python", "Java", "Bash", "PowerShell", "Ansible", "Selenium", "C/C++",
+        "HTML/CSS", "JavaScript", "React", "PostgreSQL", "Git", "YAML", "JSON",
     ],
     ops: [
         "Windows", "Linux", "Windows Server", "Proxmox", "VMware", "VirtualBox",
         "ELK Stack", "Graylog", "Prometheus", "Grafana", "Docker", "Kubernetes"
     ],
     creative: [
-        "Unity", "Blender", "FL Studio", "Audacity", "Git/GitHub"
+        "Unity", "Blender", "FL Studio", "Audacity"
     ]
 };
 
