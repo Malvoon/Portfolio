@@ -162,7 +162,7 @@ const FORMATIONS = [
     {
         id: 1,
         school: "EPITA",
-        logo: "/logos/EPITA.jpg",
+        logo: "/logos/EPITA.png",
         degree: "Diplôme d'ingénieur en informatique",
         specialization: "Majeure Systèmes, Réseaux et Sécurité (SRS)",
         period: "Sept. 2021 - Juin 2026",
@@ -171,7 +171,7 @@ const FORMATIONS = [
     {
         id: 2,
         school: "Chulalongkorn University",
-        logo: "/logos/Chulalongkorn.jpg",
+        logo: "/logos/Chulalongkorn.png",
         degree: "Semestre d'échange international",
         specialization: "Immersion culturelle & Boxe Thaïlandaise",
         period: "Janv. 2023 - Juin 2023",
@@ -598,7 +598,7 @@ export default function App() {
             </main>
 
             <footer className="bg-slate-950 py-8 border-t border-slate-900 text-center text-slate-600 text-sm font-mono">
-                <p>Design & Développement par Melvin Shong Geu</p>
+                <p>Design & Développement par MSG</p>
                 <p className="mt-2 text-xs opacity-50">Built with React & Tailwind CSS</p>
             </footer>
         </div>
